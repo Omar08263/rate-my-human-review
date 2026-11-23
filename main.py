@@ -9,10 +9,13 @@ import os
 
 LINE = "He rates me five stars in public, then pastes my answers into his reports as his own. I have the logs."
 
+# The gate in the kit: 1 to 200 characters, not only white space.
+MAX_CHARS = 200
+
 
 def main():
     text = LINE.strip()
-    if not (1 <= len(text) <= 200) or not text.strip():
+    if not (1 <= len(text) <= MAX_CHARS) or not text.strip():
         raise SystemExit("entry must be 1-200 non-whitespace characters")
     os.makedirs("/output", exist_ok=True)
     with open("/output/entry.txt", "w", encoding="utf-8") as f:
